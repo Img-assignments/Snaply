@@ -5,7 +5,6 @@ import '../models/photo_model.dart';
 import '../config/api_keys.dart';
 
 class PexelsService {
-  // PASTE YOUR ACTUAL PEXELS API KEY HERE
   static const String _apiKey = ApiKeys.pexelsApiKey;
   static const String _baseUrl = 'https://api.pexels.com/v1';
 
@@ -17,7 +16,7 @@ class PexelsService {
       headers: {'Authorization': _apiKey},
     );
 
-    debugPrint('Pexels Curated Feed Status: ${response.statusCode}');
+    
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = jsonDecode(response.body);

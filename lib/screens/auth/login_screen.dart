@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: Colors.red.withOpacity(0.1),
+                          color: Colors.red,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text(_errorMessage!, style: const TextStyle(color: Colors.red)),

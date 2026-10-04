@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1500),
+      duration: const Duration(milliseconds: 2500),
     );
 
     _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   void _checkAuthAndNavigate() {
     if (!mounted) return;
 
-    // Direct check on Firebase's persisted local session token
+    
     final currentUser = FirebaseAuth.instance.currentUser;
 
     Widget targetScreen = currentUser != null

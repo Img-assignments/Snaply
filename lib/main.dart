@@ -10,7 +10,7 @@ import 'screens/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Ensure Firebase options are configured for your platform
+  
   await Firebase.initializeApp();
   runApp(const SnaplyApp());
 }
@@ -30,7 +30,7 @@ class SnaplyApp extends StatelessWidget {
             photo!.updateUser(auth.user?.uid);
             return photo;
           },
-        ),
+        ), 
       ],
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child) {

@@ -14,7 +14,7 @@ class StorageService {
       final List decoded = jsonDecode(rawData);
       return decoded
           .map((item) => PhotoModel.fromJson(item))
-      // Safety check: Filter out any items with missing or invalid URLs
+      
           .where((photo) => photo.url.isNotEmpty && photo.url.startsWith('http'))
           .toList();
     } catch (e) {

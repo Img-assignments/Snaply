@@ -8,20 +8,20 @@ class PhotoProvider with ChangeNotifier {
   final PexelsService _pexelsService = PexelsService();
   final StorageService _storageService = StorageService();
 
-  // Home Feed State
+  
   List<PhotoModel> _homePhotos = [];
   bool _isLoadingHome = false;
   bool _isFetchingMoreHome = false;
   String? _homeError;
   int _homePage = 1;
 
-  // Search State
+  
   List<PhotoModel> _searchPhotos = [];
   bool _isLoadingSearch = false;
   String? _searchError;
   Timer? _debounceTimer;
 
-  // Saved Photos State
+  
   List<PhotoModel> _savedPhotos = [];
   String? _currentUserId;
 
@@ -46,7 +46,7 @@ class PhotoProvider with ChangeNotifier {
     }
   }
 
-  // --- Home Feed Actions ---
+  
   Future<void> fetchHomePhotos({bool refresh = false}) async {
     if (refresh) {
       _homePage = 1;
@@ -80,7 +80,7 @@ class PhotoProvider with ChangeNotifier {
     }
   }
 
-  // --- Search Actions (Debounced) ---
+  
   void onSearchQueryChanged(String query) {
     if (_debounceTimer?.isActive ?? false) _debounceTimer!.cancel();
 
@@ -92,7 +92,7 @@ class PhotoProvider with ChangeNotifier {
       return;
     }
 
-    // Debounce for 600ms before sending API call
+    
     _debounceTimer = Timer(const Duration(milliseconds: 600), () {
       _executeSearch(query);
     });
@@ -114,7 +114,7 @@ class PhotoProvider with ChangeNotifier {
     }
   }
 
-  // --- Saved Item Actions ---
+
   bool isSaved(int photoId) {
     return _savedPhotos.any((p) => p.id == photoId);
   }
@@ -128,7 +128,7 @@ class PhotoProvider with ChangeNotifier {
     } else {
       _savedPhotos.add(photo);
     }
-    notifyListeners(); // Updates all screens instantaneously
+    notifyListeners();  
     await _storageService.savePhotos(_currentUserId!, _savedPhotos);
   }
 
